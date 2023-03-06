@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useContext} from "react"
+import FeedbackContext from "../context/FeedbackContext"
 
 function RatingSelect({ select, selected }) {
     // NOTE: We don't need local state here as it's a duplicate of parent state
