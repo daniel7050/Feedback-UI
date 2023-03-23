@@ -16,7 +16,7 @@ export const FeedbackProvider = ({children}) => {
     },[])
 
     const fetchFeedback = async () => {
-        const response = await fetch (`http://localhost:5000/feedback?_sort=id&_order=desc`)
+        const response = await fetch (`https://feedback-api-03xf.onrender.com/feedback?_sort=id&_order=desc`)
         const data = await response.json()
 
         setFeedback(data)
@@ -24,7 +24,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch('http://localhost:5000/feedback', {
+        const response = await fetch('https://feedback-api-03xf.onrender.com/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,14 +39,14 @@ export const FeedbackProvider = ({children}) => {
 
     const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure you want to delete?')){
-            await fetch(`http://localhost:5000/feedback/${id}`, {method: 'DELETE'})
+            await fetch(`https://feedback-api-03xf.onrender.com/feedback/${id}`, {method: 'DELETE'})
 
             setFeedback(feedback.filter((item) => item.id !==id ))
         }
     }
 
     const updateFeedback = async (id, updItem) => {
-        const response = await fetch(`http://localhost:5000/feedback/${id}`,{
+        const response = await fetch(`https://feedback-api-03xf.onrender.com/feedback/${id}`,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
